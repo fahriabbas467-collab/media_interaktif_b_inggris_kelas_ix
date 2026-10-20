@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Media - Back to the 90s</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3e8ff; /* Light purple background */
+        }
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Nunito', sans-serif;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f3e8ff; }
+        ::-webkit-scrollbar-thumb { background: #9333ea; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #7e22ce; }
+        .retro-gradient {
+            background: linear-gradient(135deg, #7e22ce, #db2777);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased h-screen flex flex-col overflow-hidden">
+
+    <nav class="retro-gradient text-white shadow-lg z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-tape text-2xl"></i>
+                    <div>
+                        <h1 class="font-bold text-lg leading-tight brand-font">English Grade IX</h1>
+                        <p class="text-xs text-purple-200">MTs. Mu'allimin NU Kota Malang</p>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-purple-200 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-1">
+                    <button onclick="switchTab('beranda')" class="nav-btn px-4 py-2 rounded-md text-sm font-medium bg-purple-900 text-white transition">Home</button>
+                    <button onclick="switchTab('tujuan')" class="nav-btn px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-800 transition">Module Info</button>
+                    <button onclick="switchTab('materi')" class="nav-btn px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-800 transition">Material</button>
+                    <button onclick="switchTab('lkpd')" class="nav-btn px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-800 transition">Interactive LKPD</button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-purple-900">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <button onclick="switchTab('beranda'); closeMobileMenu()" class="nav-btn-mobile px-3 py-2 rounded-md text-base font-medium text-left bg-purple-950 text-white">Home</button>
+                <button onclick="switchTab('tujuan'); closeMobileMenu()" class="nav-btn-mobile px-3 py-2 rounded-md text-base font-medium text-left hover:bg-purple-800">Module Info</button>
+                <button onclick="switchTab('materi'); closeMobileMenu()" class="nav-btn-mobile px-3 py-2 rounded-md text-base font-medium text-left hover:bg-purple-800">Material</button>
+                <button onclick="switchTab('lkpd'); closeMobileMenu()" class="nav-btn-mobile px-3 py-2 rounded-md text-base font-medium text-left hover:bg-purple-800">Interactive LKPD</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-1 overflow-y-auto p-4 sm:p-8">
+        <div class="max-w-4xl mx-auto">
+            
+            <section id="beranda" class="tab-content active">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden text-center p-8 border-t-4 border-pink-500">
+                    <div class="w-24 h-24 bg-purple-100 text-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tv text-4xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 brand-font">Welcome to English Class!</h2>
+                    <h3 class="text-xl text-purple-700 font-semibold mb-6">Interactive Learning Media</h3>
+                    
+                    <div class="bg-purple-50 p-6 rounded-xl inline-block text-left border border-purple-200 mb-8 w-full md:w-auto">
+                        <p class="mb-2"><i class="fas fa-book-open mr-2 text-pink-600"></i> <strong>Topic:</strong> Back to the 90s (Simple Past Tense)</p>
+                        <p class="mb-2"><i class="fas fa-users mr-2 text-pink-600"></i> <strong>Grade:</strong> IX (Sembilan) MTs. Mu'allimin NU Kota Malang</p>
+                        <p><i class="fas fa-user-edit mr-2 text-pink-600"></i> <strong>Teacher/Author:</strong> Puji Linda Evita</p>
+                    </div>
+
+                    <p class="text-gray-600 mb-8">Let's take a trip down memory lane! In this module, we will learn about life in the 1990s, discover retro items, and master how to talk about the past using the <strong>Simple Past Tense</strong>.</p>
+                    
+                    <button onclick="switchTab('tujuan')" class="retro-gradient hover:opacity-90 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                        Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section id="tujuan" class="tab-content">
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-t-4 border-pink-500">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-purple-100 pb-2 brand-font">Module Identity & Learning Objectives</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-100">
+                            <h3 class="font-bold text-indigo-800 mb-3 flex items-center"><i class="fas fa-bullseye mr-2"></i> Learning Objectives</h3>
+                            <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                                <li>Students are able to identify vocabulary related to items and activities popular in the 1990s.</li>
+                                <li>Students are able to understand the function and structure of the <strong>Simple Past Tense</strong>.</li>
+                                <li>Students are able to construct positive, negative, and interrogative sentences using past verbs (V2).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-pink-50 p-5 rounded-xl border border-pink-100">
+                            <h3 class="font-bold text-pink-800 mb-3 flex items-center"><i class="fas fa-star mr-2"></i> Profil Pelajar Pancasila</h3>
+                            <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                                <li><strong>Berkebinekaan Global:</strong> Understanding cultural shifts and historical context in foreign language contexts.</li>
+                                <li><strong>Bernalar Kritis:</strong> Differentiating between present and past tense structures (Regular vs Irregular verbs).</li>
+                                <li><strong>Mandiri:</strong> Confidently expressing past experiences in English.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-right">
+                        <button onclick="switchTab('materi')" class="retro-gradient hover:opacity-90 text-white font-bold py-2 px-6 rounded-lg shadow transition">
+                            Next to Material <i class="fas fa-book ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="materi" class="tab-content">
+                <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border-t-4 border-pink-500">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 brand-font">Material: Back to the 90s</h2>
+                    
+                    <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mb-8 rounded-r-lg flex items-start">
+                        <i class="fas fa-info-circle text-purple-600 mt-1 mr-3 text-lg"></i>
+                        <p class="text-gray-700">Life in the 1990s was very different from today. People did not have smartphones, high-speed internet, or social media. Let's learn some words about things people used back then!</p>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-purple-700 mb-4 border-b pb-2 brand-font">A. Pop Culture & Things in the 90s</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-pink-300 transition">
+                            <div class="text-3xl text-pink-500 mb-2"><i class="fas fa-headphones-alt"></i></div>
+                            <h4 class="font-bold text-gray-800">Walkman</h4>
+                            <p class="text-xs text-gray-600">A portable music player. People used it to listen to music everywhere.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-pink-300 transition">
+                            <div class="text-3xl text-purple-500 mb-2"><i class="fas fa-tape"></i></div>
+                            <h4 class="font-bold text-gray-800">Cassette Tape</h4>
+                            <p class="text-xs text-gray-600">Before MP3s and Spotify, music was recorded on these magnetic tapes.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-pink-300 transition">
+                            <div class="text-3xl text-indigo-500 mb-2"><i class="fas fa-gamepad"></i></div>
+                            <h4 class="font-bold text-gray-800">Tamagotchi</h4>
+                            <p class="text-xs text-gray-600">A popular digital pet toy that kids had to feed and take care of.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-pink-300 transition">
+                            <div class="text-3xl text-yellow-500 mb-2"><i class="fas fa-phone-square-alt"></i></div>
+                            <h4 class="font-bold text-gray-800">Payphone</h4>
+                            <p class="text-xs text-gray-600">Public phones on the street that required coins to make a call.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-pink-300 transition">
+                            <div class="text-3xl text-red-500 mb-2"><i class="fas fa-camera-retro"></i></div>
+                            <h4 class="font-bold text-gray-800">Film Camera</h4>
+                            <p class="text-xs text-gray-600">Cameras used physical film rolls. You had to wait days to see the photos!</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-pink-300 transition">
+                            <div class="text-3xl text-blue-500 mb-2"><i class="fas fa-tv"></i></div>
+                            <h4 class="font-bold text-gray-800">CRT Television</h4>
+                            <p class="text-xs text-gray-600">Big, heavy, box-shaped TVs before flat screens were invented.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-purple-700 mb-4 border-b pb-2 brand-font">B. Grammar: Simple Past Tense</h3>
+                    
+                    <div class="bg-pink-50 border border-pink-200 rounded-xl p-5 mb-8">
+                        <p class="mb-4 text-sm text-gray-700">We use the <strong>Simple Past Tense</strong> to talk about actions or events that happened and finished in the past (e.g., yesterday, in 1995, last week).</p>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100 mb-4">
+                            <h4 class="font-bold text-pink-700 mb-2"><i class="fas fa-plus-circle mr-2"></i>Positive (+)</h4>
+                            <p class="text-sm font-mono bg-gray-100 p-2 rounded mb-2">Subject + Verb 2 + Object</p>
+                            <ul class="list-disc pl-5 text-sm text-gray-800 space-y-1">
+                                <li>I <strong>played</strong> Tamagotchi every day. (Regular: +ed)</li>
+                                <li>My father <strong>bought</strong> a Walkman in 1998. (Irregular)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100">
+                                <h4 class="font-bold text-indigo-600 mb-2"><i class="fas fa-minus-circle mr-2"></i>Negative (-)</h4>
+                                <p class="text-sm font-mono bg-gray-100 p-2 rounded mb-2">Subject + did not + Verb 1</p>
+                                <ul class="list-disc pl-5 text-sm text-gray-800 space-y-1">
+                                    <li>They <strong>did not have</strong> smartphones.</li>
+                                    <li>She <strong>didn't listen</strong> to MP3s.</li>
+                                </ul>
+                                <p class="text-xs text-red-500 mt-2">*Note: Verb changes back to V1 after "did not".</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100">
+                                <h4 class="font-bold text-purple-600 mb-2"><i class="fas fa-question-circle mr-2"></i>Interrogative (?)</h4>
+                                <p class="text-sm font-mono bg-gray-100 p-2 rounded mb-2">Did + Subject + Verb 1 ?</p>
+                                <ul class="list-disc pl-5 text-sm text-gray-800 space-y-1">
+                                    <li><strong>Did</strong> you <strong>watch</strong> TV yesterday?</li>
+                                    <li><strong>Did</strong> he <strong>call</strong> from a payphone?</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 bg-yellow-100 p-3 rounded text-sm text-gray-800 border border-yellow-200">
+                            <strong>To Be in the Past:</strong> Use <strong>Was</strong> (for I, He, She, It) and <strong>Were</strong> (for You, We, They).<br>
+                            <em>Example:</em> The movie <strong>was</strong> great. We <strong>were</strong> happy.
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center bg-purple-100 p-4 rounded-lg">
+                        <p class="font-medium text-purple-900 mb-3">Ready to test your knowledge about the 90s and Past Tense?</p>
+                        <button onclick="switchTab('lkpd')" class="retro-gradient hover:opacity-90 text-white font-bold py-2 px-6 rounded-lg shadow transition">
+                            Do the LKPD <i class="fas fa-pencil-alt ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lkpd" class="tab-content">
+                <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border-t-4 border-pink-500 relative">
+                    <div class="text-center mb-6">
+                        <h2 class="text-2xl font-bold text-gray-800 brand-font">Student Worksheet (LKPD)</h2>
+                        <p class="text-gray-500 text-sm">Answer the interactive questions below, then click "Submit Answers" at the bottom.</p>
+                    </div>
+
+                    <!-- Identitas Siswa -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-8 border border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name (Nama Lengkap)</label>
+                            <input type="text" id="siswaNama" class="w-full border-gray-300 rounded-md shadow-sm p-2 border focus:ring-purple-500 focus:border-purple-500" placeholder="Type your name...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Class (Kelas)</label>
+                            <select id="siswaKelas" class="w-full border-gray-300 rounded-md shadow-sm p-2 border focus:ring-purple-500 focus:border-purple-500">
+                                <option value="">-- Choose Class --</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Task 1 -->
+                    <div class="mb-10">
+                        <h3 class="text-lg font-bold text-purple-700 mb-2 border-l-4 border-purple-500 pl-3">Task 1: The 90s Vocabulary (25 Points)</h3>
+                        <p class="text-sm text-gray-600 mb-4">Match the descriptions with the correct 90s items!</p>
+                        
+                        <div class="space-y-4 bg-purple-50 p-5 rounded-xl border border-purple-100">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                                <div class="text-sm font-medium text-gray-700 flex-1">1. A device you put on your belt to listen to cassette tapes while walking.</div>
+                                <select id="t1_1" class="w-full md:w-48 p-2 border rounded-md border-gray-300 focus:ring-purple-500 bg-white">
+                                    <option value="">-- Choose Item --</option>
+                                    <option value="cassette">Cassette Tape</option>
+                                    <option value="walkman">Walkman</option>
+                                    <option value="tamagotchi">Tamagotchi</option>
+                                    <option value="payphone">Payphone</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mt-3 pt-3 border-t border-purple-200">
+                                <div class="text-sm font-medium text-gray-700 flex-1">2. A rectangular plastic object containing magnetic tape to record music.</div>
+                                <select id="t1_2" class="w-full md:w-48 p-2 border rounded-md border-gray-300 focus:ring-purple-500 bg-white">
+                                    <option value="">-- Choose Item --</option>
+                                    <option value="cassette">Cassette Tape</option>
+                                    <option value="camera">Film Camera</option>
+                                    <option value="tv">CRT Television</option>
+                                    <option value="walkman">Walkman</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mt-3 pt-3 border-t border-purple-200">
+                                <div class="text-sm font-medium text-gray-700 flex-1">3. A small digital pet toy that you had to feed using buttons.</div>
+                                <select id="t1_3" class="w-full md:w-48 p-2 border rounded-md border-gray-300 focus:ring-purple-500 bg-white">
+                                    <option value="">-- Choose Item --</option>
+                                    <option value="tamagotchi">Tamagotchi</option>
+                                    <option value="payphone">Payphone</option>
+                                    <option value="walkman">Walkman</option>
+                                    <option value="camera">Film Camera</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mt-3 pt-3 border-t border-purple-200">
+                                <div class="text-sm font-medium text-gray-700 flex-1">4. A public machine where you put coins to call someone.</div>
+                                <select id="t1_4" class="w-full md:w-48 p-2 border rounded-md border-gray-300 focus:ring-purple-500 bg-white">
+                                    <option value="">-- Choose Item --</option>
+                                    <option value="tv">CRT Television</option>
+                                    <option value="cassette">Cassette Tape</option>
+                                    <option value="tamagotchi">Tamagotchi</option>
+                                    <option value="payphone">Payphone</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mt-3 pt-3 border-t border-purple-200">
+                                <div class="text-sm font-medium text-gray-700 flex-1">5. A tool for taking photos that needed a physical roll inside.</div>
+                                <select id="t1_5" class="w-full md:w-48 p-2 border rounded-md border-gray-300 focus:ring-purple-500 bg-white">
+                                    <option value="">-- Choose Item --</option>
+                                    <option value="camera">Film Camera</option>
+                                    <option value="payphone">Payphone</option>
+                                    <option value="walkman">Walkman</option>
+                                    <option value="cassette">Cassette Tape</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task 2 -->
+                    <div class="mb-10">
+                        <h3 class="text-lg font-bold text-purple-700 mb-2 border-l-4 border-purple-500 pl-3">Task 2: Simple Past Tense (40 Points)</h3>
+                        <p class="text-sm text-gray-600 mb-4">Choose the correct verb form to complete the past tense sentences!</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                                1. In 1995, children <select id="t2_1" class="mx-1 p-1 border rounded bg-white"><option value="">...</option><option value="play">play</option><option value="played">played</option></select> outside everyday.
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                                2. I <select id="t2_2" class="mx-1 p-1 border rounded bg-white"><option value="">...</option><option value="go">go</option><option value="went">went</option></select> to the video rental store last night.
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                                3. We <select id="t2_3" class="mx-1 p-1 border rounded bg-white"><option value="">...</option><option value="watch">watch</option><option value="watched">watched</option></select> cartoons on a CRT TV on Sunday mornings.
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                                4. My dad <select id="t2_4" class="mx-1 p-1 border rounded bg-white"><option value="">...</option><option value="buy">buy</option><option value="bought">bought</option></select> a new Walkman yesterday.
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                                5. People <select id="t2_5" class="mx-1 p-1 border rounded bg-white"><option value="">...</option><option value="do not have">do not have</option><option value="did not have">did not have</option></select> smartphones in 1990.
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                                6. The games <select id="t2_6" class="mx-1 p-1 border rounded bg-white"><option value="">...</option><option value="are">are</option><option value="were">were</option></select> very simple but fun.
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                                7. She <select id="t2_7" class="mx-1 p-1 border rounded bg-white"><option value="">...</option><option value="wrote">wrote</option><option value="write">write</option></select> a letter to her pen pal last week.
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                                8. Did you <select id="t2_8" class="mx-1 p-1 border rounded bg-white"><option value="">...</option><option value="listen">listen</option><option value="listened">listened</option></select> to the cassette tape?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task 3 -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-purple-700 mb-2 border-l-4 border-purple-500 pl-3">Task 3: Short Essay (Max 35 Points)</h3>
+                        <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-xl mb-3 text-sm text-gray-800">
+                            <strong>Question:</strong> Think about what people did in the past. Write <strong>3 sentences</strong> in the <em>Simple Past Tense</em> about an activity or item from the past!<br><br>
+                            <em>Example: My sister fed her Tamagotchi. We watched a movie on a big TV.</em>
+                        </div>
+                        <textarea id="t3_essay" rows="4" class="w-full border-gray-300 rounded-lg shadow-sm p-3 border focus:ring-purple-500" placeholder="Type your sentences here... (Note: Essay will be manually graded by Mrs. Puji Linda Evita)."></textarea>
+                    </div>
+
+                    <div class="flex justify-center mt-8">
+                        <button onclick="submitLKPD()" class="retro-gradient hover:opacity-90 text-white font-bold py-3 px-10 rounded-full shadow-lg transition transform hover:scale-105 flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Submit Answers
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="resultModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+            <div class="text-center">
+                <div id="modalIcon" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl mb-4">
+                    <!-- Icon injected by JS -->
+                </div>
+                <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-2 brand-font">LKPD Result</h3>
+                
+                <div class="bg-gray-50 rounded-xl p-4 my-6 text-left border">
+                    <p class="mb-1 text-sm text-gray-600">Name: <span id="resNama" class="font-semibold text-gray-800">-</span></p>
+                    <p class="mb-3 text-sm text-gray-600">Class: <span id="resKelas" class="font-semibold text-gray-800">-</span></p>
+                    <div class="border-t pt-3">
+                        <p class="flex justify-between text-sm mb-1">Score Task 1 (Vocabulary): <span id="resT1" class="font-bold">0 / 25</span></p>
+                        <p class="flex justify-between text-sm mb-1">Score Task 2 (Grammar): <span id="resT2" class="font-bold">0 / 40</span></p>
+                        <p class="flex justify-between text-sm text-orange-600 italic mt-2 text-xs">*Task 3 (Essay - Max 35 pts) needs manual grading by the teacher.</p>
+                        <div class="mt-4 text-center bg-purple-100 p-2 rounded-lg">
+                            <span class="block text-xs text-purple-700 uppercase tracking-wide font-bold">Auto-Graded Total</span>
+                            <span id="resTotal" class="text-3xl font-bold text-purple-700">0</span> <span class="text-gray-500 text-sm">/ 65</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-left bg-green-50 p-4 rounded-lg mb-6 border border-green-100 text-sm hidden" id="kunciEsai">
+                    <h4 class="font-bold text-green-800 mb-2">Essay Examples for Task 3:</h4>
+                    <p class="text-green-900">
+                        1. My brother bought a cassette tape in 1998.<br>
+                        2. They played video games all night.<br>
+                        3. She called her friend using a payphone.<br>
+                        <em>(Students must use correct Subject + V2 structure).</em>
+                    </p>
+                </div>
+
+                <button onclick="closeModal()" class="w-full retro-gradient hover:opacity-90 text-white font-bold py-2 px-4 rounded-lg transition">
+                    Close & Review
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-purple-900');
+                btn.classList.add('hover:bg-purple-800');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            
+            const clickedBtn = Array.from(document.querySelectorAll('.nav-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+            if(clickedBtn) {
+                clickedBtn.classList.add('bg-purple-900');
+                clickedBtn.classList.remove('hover:bg-purple-800');
+            }
+            
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            menu.classList.add('hidden');
+        }
+
+        // Answer Key
+        const KUNCI = {
+            t1: {
+                't1_1': 'walkman', 
+                't1_2': 'cassette', 
+                't1_3': 'tamagotchi', 
+                't1_4': 'payphone', 
+                't1_5': 'camera' 
+            },
+            t2: {
+                't2_1': 'played',       // V2
+                't2_2': 'went',         // V2
+                't2_3': 'watched',      // V2
+                't2_4': 'bought',       // V2
+                't2_5': 'did not have', // Negative past
+                't2_6': 'were',         // To be plural past
+                't2_7': 'wrote',        // V2
+                't2_8': 'listen'        // Interrogative V1
+            }
+        };
+
+        const modal = document.getElementById('resultModal');
+        const modalContent = document.getElementById('modalContent');
+        
+        function openModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function submitLKPD() {
+            const nama = document.getElementById('siswaNama').value.trim();
+            const kelas = document.getElementById('siswaKelas').value;
+            
+            if(!nama || !kelas) {
+                document.getElementById('siswaNama').classList.add('ring-2', 'ring-red-500');
+                document.getElementById('siswaKelas').classList.add('ring-2', 'ring-red-500');
+                
+                setupModalIcon('warning');
+                document.getElementById('modalTitle').innerText = "Oops! Data Incomplete";
+                document.getElementById('modalTitle').className = "text-2xl font-bold text-orange-600 mb-2 brand-font";
+                
+                document.getElementById('kunciEsai').classList.add('hidden');
+                document.getElementById('resNama').innerText = "Please fill your Name & Class";
+                document.getElementById('resKelas').innerText = "-";
+                document.getElementById('resT1').innerText = "-";
+                document.getElementById('resT2').innerText = "-";
+                document.getElementById('resTotal').innerText = "0";
+                
+                openModal();
+                
+                setTimeout(() => {
+                    document.getElementById('siswaNama').classList.remove('ring-2', 'ring-red-500');
+                    document.getElementById('siswaKelas').classList.remove('ring-2', 'ring-red-500');
+                }, 3000);
+                return;
+            }
+
+            // Grade Task 1
+            let scoreT1 = 0;
+            for (let id in KUNCI.t1) {
+                let elem = document.getElementById(id);
+                if (elem.value === KUNCI.t1[id]) {
+                    scoreT1 += 5;
+                    elem.classList.remove('border-red-400', 'bg-red-50');
+                    elem.classList.add('border-green-500', 'bg-green-50');
+                } else {
+                    if(elem.value !== "") {
+                        elem.classList.add('border-red-400', 'bg-red-50');
+                        elem.classList.remove('border-green-500', 'bg-green-50');
+                    }
+                }
+            }
+
+            // Grade Task 2
+            let scoreT2 = 0;
+            for (let id in KUNCI.t2) {
+                let elem = document.getElementById(id);
+                if (elem.value === KUNCI.t2[id]) {
+                    scoreT2 += 5;
+                    elem.classList.remove('border-red-400', 'bg-red-50');
+                    elem.classList.add('border-green-500', 'bg-green-50');
+                } else {
+                    if(elem.value !== "") {
+                        elem.classList.add('border-red-400', 'bg-red-50');
+                        elem.classList.remove('border-green-500', 'bg-green-50');
+                    }
+                }
+            }
+
+            let totalOtomatis = scoreT1 + scoreT2;
+
+            document.getElementById('resNama').innerText = nama;
+            document.getElementById('resKelas').innerText = kelas;
+            document.getElementById('resT1').innerText = scoreT1 + " / 25";
+            document.getElementById('resT2').innerText = scoreT2 + " / 40";
+            document.getElementById('resTotal').innerText = totalOtomatis;
+            document.getElementById('kunciEsai').classList.remove('hidden');
+
+            if (totalOtomatis >= 50) {
+                setupModalIcon('success');
+                document.getElementById('modalTitle').innerText = "Totally Awesome!";
+                document.getElementById('modalTitle').className = "text-2xl font-bold text-green-600 mb-2 brand-font";
+            } else {
+                setupModalIcon('info');
+                document.getElementById('modalTitle').innerText = "Keep Trying!";
+                document.getElementById('modalTitle').className = "text-2xl font-bold text-purple-600 mb-2 brand-font";
+            }
+
+            openModal();
+        }
+
+        function setupModalIcon(type) {
+            const iconDiv = document.getElementById('modalIcon');
+            if (type === 'success') {
+                iconDiv.className = "w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl mb-4 bg-green-100 text-green-600";
+                iconDiv.innerHTML = '<i class="fas fa-check"></i>';
+            } else if (type === 'warning') {
+                iconDiv.className = "w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl mb-4 bg-orange-100 text-orange-500";
+                iconDiv.innerHTML = '<i class="fas fa-exclamation"></i>';
+            } else {
+                iconDiv.className = "w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl mb-4 bg-purple-100 text-purple-600";
+                iconDiv.innerHTML = '<i class="fas fa-info"></i>';
+            }
+        }
+    </script>
+</body>
+</html>
